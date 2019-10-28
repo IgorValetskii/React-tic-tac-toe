@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
 import './App.css';
-import List from "./components/ListUsers";
 
 interface Props {
-  value : number | null;
-  onClick() : any;
+  value? : number;
+  onClick?(): any
 }
 
 interface State {
-  value?: string | null;
-  squares?: number[];
-  xIsNext?: boolean;
+  value?: string;
+  squares: string[];
+  xIsNext: boolean;
 
-}
-
-interface Board {
-  // handleClick: any;
 }
 
 // class Square extends React.Component<Props,State> {
@@ -38,7 +33,7 @@ function Square(props:any) {
   );
 }
 
-function calculateWinner(squares:any) {
+function calculateWinner(squares:string[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -59,7 +54,7 @@ function calculateWinner(squares:any) {
 }
 
 
-class Board extends React.Component<State, any> {
+class Board extends React.Component<Props, State> {
   constructor(props:any) {
     super(props);
     this.state = {
